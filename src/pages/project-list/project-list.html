@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Projects</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-list>
+        <button ion-item *ngFor="let project of projects">
+          {{ project.name }}
+        </button>  
+    </ion-list>
+</ion-content>

@@ -1,5 +1,9 @@
 {
   "name": "client",
   "app_id": "",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "proxies": [{
+    "path": "/api",
+    "proxyUrl": "https://cashbook-server.sloppy.zone/"
+  }]
 }
