@@ -7,13 +7,15 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class MemberProvider {
 
+    public static URI_ENDPOINT = "";
+
     constructor(public http: Http, protected storage:Storage, protected alertController:AlertController) {    
     }
 
     presentAlert() {
         let alert = this.alertController.create({
-            title : 'Login failed' ,
-            subTitle : 'Login failed, please try again!' ,
+            title : 'Login fehlgeschlagen' ,
+            subTitle : 'Der Login ist fehlgeschlagen, bitte versuchen Sie es erneut!' ,
             buttons : ['Ok']
         });
         alert.present();
@@ -21,12 +23,13 @@ export class MemberProvider {
 
     login(username:string, password:string) : Promise<any> {
         return new Promise<any> ((resolve, reject) => {
-            this.http.post('/api/members/login', {
+            this.http.post(MemberProvider.URI_ENDPOINT + '/members/login', {
                 username : username ,
                 password : password
             }).map(response => {
                 return response.json();
             }).subscribe(response => {
+                this.storage.set('username', username);
                 this.storage.set('token', response.token + ":" + response.password);
                 resolve();
             }, (e) => {

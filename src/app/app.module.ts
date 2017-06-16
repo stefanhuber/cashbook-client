@@ -10,6 +10,14 @@ import { MyApp } from './app.component';
 import { MemberProvider } from '../providers/member/member';
 import { ProjectProvider } from '../providers/project/project';
 
+MemberProvider.URI_ENDPOINT  = '/api';
+ProjectProvider.URI_ENDPOINT = '/api';
+// TransactionProvider.DB_ENDPOINT = 'http://TOKEN@localhost:8000/db/PROJECTID';
+
+// MemberProvider.URI_ENDPOINT  = 'https://cashbook-server.sloppy.zone';
+// ProjectProvider.URI_ENDPOINT = 'https://cashbook-server.sloppy.zone';
+// TransactionProvider.DB_ENDPOINT = 'https://TOKEN@cashbook-server-couchdb.sloppy.zone/PROJECTID';
+
 @NgModule({
   declarations: [
     MyApp

@@ -1,14 +1,19 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Projects</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Projekte</ion-title>
+    <ion-buttons end>
+      <button (click)="openProjectPrompt()" ion-button icon-only>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
-
-
 <ion-content>
     <ion-list>
         <button ion-item *ngFor="let project of projects">
-          {{ project.name }}
+          {{ project.name }}         
+          <button *ngIf="project.isOwner" ion-button outline item-end (click)="openMemberPrompt(project._id)"><ion-icon name="contacts"></ion-icon></button>
+          <button ion-button outline item-end (click)="openProject(project)"><ion-icon name="open"></ion-icon></button>
         </button>  
     </ion-list>
 </ion-content>
