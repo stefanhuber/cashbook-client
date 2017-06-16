@@ -9,14 +9,15 @@ import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { MemberProvider } from '../providers/member/member';
 import { ProjectProvider } from '../providers/project/project';
+import { TransactionProvider } from '../providers/transaction/transaction';
 
-MemberProvider.URI_ENDPOINT  = '/api';
-ProjectProvider.URI_ENDPOINT = '/api';
+// MemberProvider.URI_ENDPOINT  = '/api';
+// ProjectProvider.URI_ENDPOINT = '/api';
 // TransactionProvider.DB_ENDPOINT = 'http://TOKEN@localhost:8000/db/PROJECTID';
 
-// MemberProvider.URI_ENDPOINT  = 'https://cashbook-server.sloppy.zone';
-// ProjectProvider.URI_ENDPOINT = 'https://cashbook-server.sloppy.zone';
-// TransactionProvider.DB_ENDPOINT = 'https://TOKEN@cashbook-server-couchdb.sloppy.zone/PROJECTID';
+MemberProvider.URI_ENDPOINT  = 'https://cashbook-server.sloppy.zone';
+ProjectProvider.URI_ENDPOINT = 'https://cashbook-server.sloppy.zone';
+TransactionProvider.DB_ENDPOINT = 'https://TOKEN@cashbook-server-couchdb.sloppy.zone/PROJECTID';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ ProjectProvider.URI_ENDPOINT = '/api';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MemberProvider,
-    ProjectProvider
+    ProjectProvider,
+    TransactionProvider
   ]
 })
 export class AppModule {}

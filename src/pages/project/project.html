@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{ project.name }}</ion-title>
+    <ion-buttons end>
+      <button (click)="addTransaction()" ion-button icon-only>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-list [virtualScroll]="transactions">
+
+      <ion-item *virtualItem="let transaction">
+        <ion-icon item-start *ngIf="!transaction.deposit" name="ios-share-outline"></ion-icon>
+        <ion-icon item-start *ngIf="transaction.deposit" name="ios-download-outline"></ion-icon>
+        <button ion-button outline item-end *ngIf="!transaction.deposit" color="danger">- {{ transaction.amount }}</button>
+        <button ion-button outline item-end *ngIf="transaction.deposit" color="secondary">{{ transaction.amount }}</button>
+
+        {{ transaction.description }} ({{ transaction.member }})
+      </ion-item>
+
+    </ion-list>
+</ion-content>

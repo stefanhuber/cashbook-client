@@ -21,7 +21,7 @@ export class ProjectListPage {
     }
 
     openProject(project:any) {
-        // this.navCtrl.push('project', { projectId: project._id });
+        this.navCtrl.push('project', { projectId: project._id });
     }
 
     openMemberPrompt(projectId:any) {
